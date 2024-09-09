@@ -1,13 +1,15 @@
 
-import utils
+from core import (
+    Flask, config, os, getCurrentDate, register_blueprints, colorama
+)
 
-app = utils.Flask(__name__)
-app.secret_key = utils.config.SECRET_KEY
+app = Flask(__name__)
+app.secret_key = config.SECRET_KEY
 
-utils.os.system('cls' if utils.os.name=='nt' else 'clear')
+os.system('cls' if os.name=='nt' else 'clear')
 print("")
-utils.register_blueprints(app)
+register_blueprints(app)
 
-print(f"[{utils.getCurrentDate()}] | {utils.colorama.Fore.RED}START{utils.colorama.Fore.RESET} -> {utils.colorama.Fore.GREEN}Website is running on host {utils.config.HOST}:{utils.config.PORT} (debug = {utils.config.DEBUG})")
+print(f"[{getCurrentDate()}] | {colorama.Fore.RED}START{colorama.Fore.RESET} -> {colorama.Fore.GREEN}Website is running on host {config.HOST}:{config.PORT} (debug = {config.DEBUG})")
 
-app.run(host=utils.config.HOST, port=utils.config.PORT, debug=utils.config.DEBUG)
+app.run(host=config.HOST, port=config.PORT, debug=config.DEBUG)
