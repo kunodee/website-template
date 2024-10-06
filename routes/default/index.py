@@ -1,5 +1,5 @@
 
-from utils import Blueprint
+from core import Blueprint
 
 bp = Blueprint("indexBP", __name__)
 
